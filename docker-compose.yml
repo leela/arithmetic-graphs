@@ -1,0 +1,13 @@
+version: '3'
+services:
+  api-service:
+    build: numbers 
+    ports:
+      - "8080:80"
+  web-service:
+    build: web
+    ports:
+      - "80:8501"
+    environment:
+      NUMBERS_URL: http://host.docker.internal:8080/numbers
+
